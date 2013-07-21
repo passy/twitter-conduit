@@ -10,7 +10,7 @@ module Web.Twitter.Conduit.Status
        -- * Timelines
        , homeTimeline
        , mentions
-       , publicTimeline
+       , sample
        , retweetedByMe
        , retweetedToMe
        , retweetsOfMe
@@ -52,8 +52,8 @@ homeTimeline = statuses authRequired "home_timeline.json"
 mentions :: TwitterBaseM m => HT.SimpleQuery -> C.Source (TW WithToken m) Status
 mentions = statuses authRequired "mentions.json"
 
-publicTimeline :: TwitterBaseM m => HT.SimpleQuery -> C.Source (TW cred m) Status
-publicTimeline = statuses noAuth "public_timeline.json"
+sample :: TwitterBaseM m => HT.SimpleQuery -> C.Source (TW WithToken m) Status
+sample = statuses noAuth "sample.json"
 
 retweetedByMe :: TwitterBaseM m => HT.SimpleQuery -> C.Source (TW WithToken m) Status
 retweetedByMe = statuses authRequired "retweeted_by_me.json"
